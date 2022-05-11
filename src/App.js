@@ -26,11 +26,6 @@ export default function App() {
   }
 
   function handleTemplateSubmit() {
-    setOptions({ method: 'GET' });
-    setUrl(`https://api.memegen.link/images/${templateInput}`);
-  }
-
-  function handlePreview() {
     setOptions({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -41,7 +36,7 @@ export default function App() {
         redirect: true,
       }),
     });
-    setUrl('https://api.memegen.link/images');
+    setUrl(`https://api.memegen.link/images`);
   }
   useEffect(() => {
     async function fetchImage() {
@@ -78,7 +73,6 @@ export default function App() {
       <div className="flex-row">
         <Buttons
           handleTemplateSubmit={handleTemplateSubmit}
-          handlePreview={handlePreview}
           imgSrc={imgSrc}
           handleFileDownload={handleFileDownload}
         />
