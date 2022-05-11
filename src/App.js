@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Buttons from './components/Buttons';
+import Hero from './components/Hero';
 import ImagePreview from './components/ImagePreview';
 import MemeForm from './components/MemeForm';
 
@@ -54,7 +55,7 @@ export default function App() {
         }
         const data = hasPreview ? response : await response.json();
         console.log(data);
-        return hasPreview ? data.url : data.example.url;
+        return hasPreview ? data.url : data.blank;
       } catch (error) {
         console.log(error);
       }
@@ -66,18 +67,21 @@ export default function App() {
 
   return (
     <>
-      <MemeForm
-        handleTopInput={handleTopInput}
-        handleBotInput={handleBotInput}
-        handleTemplateInput={handleTemplateInput}
-        handleTemplateSubmit={handleTemplateSubmit}
-      />
-      <ImagePreview imgSrc={imgSrc} />
-      <Buttons
-        handleTemplateSubmit={handleTemplateSubmit}
-        handlePreview={handlePreview}
-        imgSrc={imgSrc}
-      />
+      <Hero />
+      <div className="container">
+        <MemeForm
+          handleTopInput={handleTopInput}
+          handleBotInput={handleBotInput}
+          handleTemplateInput={handleTemplateInput}
+          handleTemplateSubmit={handleTemplateSubmit}
+        />
+        <ImagePreview imgSrc={imgSrc} />
+        <Buttons
+          handleTemplateSubmit={handleTemplateSubmit}
+          handlePreview={handlePreview}
+          imgSrc={imgSrc}
+        />
+      </div>
     </>
   );
 }
