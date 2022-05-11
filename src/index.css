@@ -70,19 +70,25 @@ people that prefer not to see them */
 /* ----- Reset done ------ */
 
 body {
-  color: #29eb53;
+  color: #10b981;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 1px;
+  background-color: #192330;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 img {
   width: 300px;
   border-radius: 20px;
   border: 2px solid #ffffff;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   box-shadow: 5px 5px 8px #383333;
 }
 .container {
+  width: 50%;
+  border-radius: 25px;
   padding: 1.3em;
   display: flex;
   flex-direction: column;
@@ -94,6 +100,12 @@ img {
 
 .form {
   text-align: center;
+  width: 400px;
+  margin-bottom: 1em;
+}
+
+.meme-template {
+  margin-bottom: 1em;
 }
 
 .flex-row {
@@ -106,4 +118,36 @@ img {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: none;
+  border-radius: 25px;
+  height: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.download-btn {
+  width: 40%;
+  margin-top: 1em;
+}
+
+button {
+  padding: 0.6em 1.8em;
+  margin-right: 2em;
+  background-color: #10b981;
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+  border-bottom: 5px solid #34d399;
+}
+
+button:active {
+  transform: translateY(5px);
+  border: 0;
 }
