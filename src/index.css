@@ -69,21 +69,41 @@ people that prefer not to see them */
 
 /* ----- Reset done ------ */
 
+body {
+  color: #29eb53;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+img {
+  width: 300px;
+  border-radius: 20px;
+  border: 2px solid #ffffff;
+  margin-bottom: 2em;
+  box-shadow: 5px 5px 8px #383333;
+}
 .container {
-  width: 80%;
+  padding: 1.3em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  background-color: #1c1c1c;
 }
-.hero {
-  height: 90px;
-  width: 100%;
-  background: rgb(162, 50, 167);
-  background: linear-gradient(
-    74deg,
-    rgba(162, 50, 167, 1) 39%,
-    rgba(249, 236, 245, 1) 100%
-  );
+
+.form {
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

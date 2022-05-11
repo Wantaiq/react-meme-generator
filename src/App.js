@@ -26,7 +26,11 @@ export default function App() {
   }
 
   function handleTemplateSubmit() {
-    setUrl(`https://api.memegen.link/templates/${templateInput.toLowerCase()}`);
+    templateInput
+      ? setUrl(
+          `https://api.memegen.link/templates/${templateInput.toLowerCase()}`,
+        )
+      : setUrl(`https://api.memegen.link/templates/doge`);
   }
 
   function handlePreview() {
@@ -66,22 +70,22 @@ export default function App() {
   }, [url, options, hasPreview]);
 
   return (
-    <>
+    <div className="container">
       <Hero />
-      <div className="container">
-        <MemeForm
-          handleTopInput={handleTopInput}
-          handleBotInput={handleBotInput}
-          handleTemplateInput={handleTemplateInput}
-          handleTemplateSubmit={handleTemplateSubmit}
-        />
-        <ImagePreview imgSrc={imgSrc} />
+      <ImagePreview imgSrc={imgSrc} />
+      <MemeForm
+        handleTopInput={handleTopInput}
+        handleBotInput={handleBotInput}
+        handleTemplateInput={handleTemplateInput}
+        handleTemplateSubmit={handleTemplateSubmit}
+      />
+      <div className="flex-row">
         <Buttons
           handleTemplateSubmit={handleTemplateSubmit}
           handlePreview={handlePreview}
           imgSrc={imgSrc}
         />
       </div>
-    </>
+    </div>
   );
 }
