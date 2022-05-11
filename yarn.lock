@@ -1823,6 +1823,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/file-saver@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@types/file-saver/-/file-saver-2.0.5.tgz#9ee342a5d1314bb0928375424a2f162f97c310c7"
+  integrity sha512-zv9kNf3keYegP5oThGLaPk8E081DFDuwfqjtiTzm6PoxChdJ1raSuADf2YGCVIyrSynLrgc8JWv296s7Q7pQSQ==
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
@@ -2111,10 +2116,10 @@
     "@typescript-eslint/types" "5.22.0"
     eslint-visitor-keys "^3.0.0"
 
-"@upleveled/eslint-config-upleveled@2.10.2":
-  version "2.10.2"
-  resolved "https://registry.yarnpkg.com/@upleveled/eslint-config-upleveled/-/eslint-config-upleveled-2.10.2.tgz#dd8e7973170c0fa3338ef88e78e693e195aa5e99"
-  integrity sha512-zIzekg4HAd7rGACF0L2YGyl1t/3I6Kuw7aP01cFam7NIpxB6eEnCAGoR2CoTvIGEzyxQRrBAJAYv/KbFMDy7Ow==
+"@upleveled/eslint-config-upleveled@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@upleveled/eslint-config-upleveled/-/eslint-config-upleveled-2.11.0.tgz#1bd541d3e29adba1a47c65bde97e9c1e11754132"
+  integrity sha512-1CZz8qEenAd5qVvptsa0L8FIQLoEoOIA0pu6sS/1JM7y2TxSe446XaalxLMXYbbFujb/Me+5lnY9BgVZlmfUww==
 
 "@upleveled/eslint-plugin-upleveled@2.1.5":
   version "2.1.5"
