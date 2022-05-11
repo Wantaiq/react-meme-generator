@@ -26,32 +26,16 @@ export default function App() {
   }
 
   function handleTemplateSubmit() {
-    templateInput
-      ? setUrl(`https://api.memegen.link/images/${templateInput.toLowerCase()}`)
-      : setUrl(`https://api.memegen.link/images/doge`);
+    setOptions({ method: 'GET' });
+    setUrl(`https://api.memegen.link/images/${templateInput}`);
   }
-
-  //   function handlePreview() {
-  //     setOptions({
-  //     method: 'POST',
-  //      headers: {'Content-Type': 'application/json'},
-  //      body: JSON.stringify({
-  //     template_id: templateInput.toLowerCase(),
-  //     text: [
-  //     topInput,
-  //     botInput
-  //     ],
-  //     "extension": "string",
-  //     "redirect": true
-  //   })
-  // })
 
   function handlePreview() {
     setOptions({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        template_id: templateInput.toLowerCase(),
+        template_id: templateInput ? templateInput.toLowerCase() : 'aag',
         text: [topText, botText],
         extension: 'string',
         redirect: true,
