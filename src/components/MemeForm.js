@@ -8,6 +8,7 @@ export default function MemeForm(props) {
       <label htmlFor="template-input">Meme template</label>
       <input
         onChange={(e) => props.handleTemplateInput(e)}
+        onKeyDown={(e) => handleKeyDown(e)}
         id="template-input"
       />
     </div>

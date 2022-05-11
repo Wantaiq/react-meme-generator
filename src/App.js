@@ -25,7 +25,7 @@ export default function App() {
   }
 
   function handleTemplateSubmit() {
-    setUrl(`https://api.memegen.link/templates/${templateInput}`);
+    setUrl(`https://api.memegen.link/templates/${templateInput.toLowerCase()}`);
   }
 
   function handlePreview() {
@@ -53,7 +53,6 @@ export default function App() {
           throw new Error(response.status);
         }
         const data = hasPreview ? response : await response.json();
-        console.log(data);
         return hasPreview ? data.url : data.blank;
       } catch (error) {
         console.log(error);
@@ -70,11 +69,13 @@ export default function App() {
         handleTopInput={handleTopInput}
         handleBotInput={handleBotInput}
         handleTemplateInput={handleTemplateInput}
+        handleTemplateSubmit={handleTemplateSubmit}
       />
       <ImagePreview imgSrc={imgSrc} />
       <Buttons
         handleTemplateSubmit={handleTemplateSubmit}
         handlePreview={handlePreview}
+        imgSrc={imgSrc}
       />
     </>
   );
