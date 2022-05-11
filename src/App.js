@@ -44,17 +44,6 @@ export default function App() {
     setUrl('https://api.memegen.link/images');
   }
   useEffect(() => {
-    setOptions({
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        template_id: templateInput ? templateInput.toLowerCase() : 'aag',
-        text: [topText, botText],
-        extension: 'string',
-        redirect: true,
-      }),
-    });
-
     async function fetchImage() {
       try {
         const response = await fetch(url, options);
@@ -71,7 +60,7 @@ export default function App() {
     fetchImage()
       .then((data) => setImgSrc(data))
       .catch((err) => console.log(err));
-  }, [url, options, topText, botText]);
+  }, [url, options]);
 
   function handleFileDownload() {
     saveAs(imgSrc, 'meme.png');
