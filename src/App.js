@@ -53,7 +53,8 @@ export default function App() {
           throw new Error(response.status);
         }
         const data = hasPreview ? response : await response.json();
-        return hasPreview ? data.url : data.blank;
+        console.log(data);
+        return hasPreview ? data.url : data.example.url;
       } catch (error) {
         console.log(error);
       }
