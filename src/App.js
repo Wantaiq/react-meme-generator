@@ -9,7 +9,7 @@ export default function App() {
   const [topInput, setTopInput] = useState('');
   const [botInput, setBotInput] = useState('');
   const [templateInput, setTemplateInput] = useState('');
-  const [hasPreview, setHasPreview] = useState(false);
+  const [isPreview, setHasPreview] = useState(false);
   const [options, setOptions] = useState('');
   const [imgSrc, setImgSrc] = useState('');
   const [url, setUrl] = useState('https://api.memegen.link/templates/afraid');
@@ -52,14 +52,14 @@ export default function App() {
   useEffect(() => {
     async function fetchImage() {
       try {
-        const response = hasPreview
+        const response = isPreview
           ? await fetch(url, options)
           : await fetch(url);
         if (!response.ok) {
           throw new Error(response.status);
         }
-        const data = hasPreview ? response : await response.json();
-        return hasPreview ? data.url : data.blank;
+        const data = isPreview ? response : await response.json();
+        return isPreview ? data.url : data.blank;
       } catch (error) {
         console.log(error);
       }
@@ -67,7 +67,7 @@ export default function App() {
     fetchImage()
       .then((data) => setImgSrc(data))
       .catch((err) => console.log(err));
-  }, [url, options, hasPreview]);
+  }, [url, options, isPreview]);
 
   function handleFileDownload() {
     saveAs(imgSrc, 'meme.png');
