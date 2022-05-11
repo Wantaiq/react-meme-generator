@@ -1,4 +1,9 @@
 export default function MemeForm(props) {
+  function handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      props.handleTemplateSubmit();
+    }
+  }
   return (
     <div className="form">
       <label htmlFor="top-text">Top text</label>
