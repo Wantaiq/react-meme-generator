@@ -5,20 +5,20 @@ import ImagePreview from './components/ImagePreview';
 import MemeForm from './components/MemeForm';
 
 export default function App() {
-  const [topInput, setTopInput] = useState('');
-  const [botInput, setBotInput] = useState('');
+  const [topText, setTopText] = useState('');
+  const [botText, setBotText] = useState('');
   const [templateInput, setTemplateInput] = useState('');
-  const [isPreview, setIsPreview] = useState(false);
-  const [options, setOptions] = useState('');
-  const [imgSrc, setImgSrc] = useState('');
-  const [url, setUrl] = useState('https://api.memegen.link/templates/afraid');
+  const [options, setOptions] = useState({ method: 'GET' });
 
-  function handleBotInput(e) {
-    setBotInput(e.currentTarget.value);
+  const [imgSrc, setImgSrc] = useState('');
+  const [url, setUrl] = useState('https://api.memegen.link/images/afraid');
+
+  function handleBotText(e) {
+    setBotText(e.currentTarget.value);
   }
 
-  function handleTopInput(e) {
-    setTopInput(e.currentTarget.value);
+  function handleTopText(e) {
+    setTopText(e.currentTarget.value);
   }
 
   function handleTemplateInput(e) {
@@ -27,38 +27,48 @@ export default function App() {
 
   function handleTemplateSubmit() {
     templateInput
-      ? setUrl(
-          `https://api.memegen.link/templates/${templateInput.toLowerCase()}`,
-        )
-      : setUrl(`https://api.memegen.link/templates/doge`);
+      ? setUrl(`https://api.memegen.link/images/${templateInput.toLowerCase()}`)
+      : setUrl(`https://api.memegen.link/images/doge`);
   }
 
+  //   function handlePreview() {
+  //     setOptions({
+  //     method: 'POST',
+  //      headers: {'Content-Type': 'application/json'},
+  //      body: JSON.stringify({
+  //     template_id: templateInput.toLowerCase(),
+  //     text: [
+  //     topInput,
+  //     botInput
+  //     ],
+  //     "extension": "string",
+  //     "redirect": true
+  //   })
+  // })
+
   function handlePreview() {
-    setIsPreview(true);
     setOptions({
       method: 'POST',
-      accept: 'application/json',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        style: ['string'],
-        text: [topInput, botInput],
-        font: 'string',
+        template_id: templateInput.toLowerCase(),
+        text: [topText, botText],
         extension: 'string',
         redirect: true,
       }),
     });
+    setUrl('https://api.memegen.link/images');
   }
   useEffect(() => {
     async function fetchImage() {
       try {
-        const response = isPreview
-          ? await fetch(url, options)
-          : await fetch(url);
+        const response = await fetch(url, options);
         if (!response.ok) {
           throw new Error(response.status);
         }
-        const data = isPreview ? response : await response.json();
-        return isPreview ? data.url : data.blank;
+        const data = response;
+        console.log(data);
+        return data.url;
       } catch (error) {
         console.log(error);
       }
@@ -66,7 +76,7 @@ export default function App() {
     fetchImage()
       .then((data) => setImgSrc(data))
       .catch((err) => console.log(err));
-  }, [url, options, isPreview]);
+  }, [url, options]);
 
   function handleFileDownload() {
     saveAs(imgSrc, 'meme.png');
@@ -76,8 +86,8 @@ export default function App() {
     <div className="container">
       <ImagePreview imgSrc={imgSrc} />
       <MemeForm
-        handleTopInput={handleTopInput}
-        handleBotInput={handleBotInput}
+        handleTopText={handleTopText}
+        handleBotText={handleBotText}
         handleTemplateInput={handleTemplateInput}
         handleTemplateSubmit={handleTemplateSubmit}
       />

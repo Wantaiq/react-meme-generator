@@ -17,11 +17,11 @@ export default function MemeForm(props) {
       <div className="form flex-row">
         <div className="top-text flex-col">
           <label htmlFor="top-text">Top text</label>
-          <input onChange={(e) => props.handleTopInput(e)} id="top-text" />
+          <input onChange={(e) => props.handleTopText(e)} id="top-text" />
         </div>
         <div className="bottom-text flex-col">
           <label htmlFor="bot-text">Bottom text</label>
-          <input onChange={(e) => props.handleBotInput(e)} id="bot-text" />
+          <input onChange={(e) => props.handleBotText(e)} id="bot-text" />
         </div>
       </div>
     </>
