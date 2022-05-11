@@ -9,7 +9,7 @@ export default function App() {
   const [topInput, setTopInput] = useState('');
   const [botInput, setBotInput] = useState('');
   const [templateInput, setTemplateInput] = useState('');
-  const [isPreview, setHasPreview] = useState(false);
+  const [isPreview, setIsPreview] = useState(false);
   const [options, setOptions] = useState('');
   const [imgSrc, setImgSrc] = useState('');
   const [url, setUrl] = useState('https://api.memegen.link/templates/afraid');
@@ -35,7 +35,7 @@ export default function App() {
   }
 
   function handlePreview() {
-    setHasPreview(true);
+    setIsPreview(true);
     setOptions({
       method: 'POST',
       accept: 'application/json',
