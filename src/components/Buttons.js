@@ -3,7 +3,6 @@ export default function Button(props) {
     <div className="buttons flex-col">
       <div className="flex-row">
         <button
-          data-test-id="generate-meme"
           onClick={props.handleTemplateSubmit}
           htmlFor="generate-template"
         >
