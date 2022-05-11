@@ -1,3 +1,4 @@
+import { saveAs } from 'file-saver';
 import { useEffect, useState } from 'react';
 import Buttons from './components/Buttons';
 import Hero from './components/Hero';
@@ -58,7 +59,6 @@ export default function App() {
           throw new Error(response.status);
         }
         const data = hasPreview ? response : await response.json();
-        console.log(data);
         return hasPreview ? data.url : data.blank;
       } catch (error) {
         console.log(error);
@@ -68,6 +68,10 @@ export default function App() {
       .then((data) => setImgSrc(data))
       .catch((err) => console.log(err));
   }, [url, options, hasPreview]);
+
+  function handleFileDownload() {
+    saveAs(imgSrc, 'meme.png');
+  }
 
   return (
     <div className="container">
@@ -84,6 +88,7 @@ export default function App() {
           handleTemplateSubmit={handleTemplateSubmit}
           handlePreview={handlePreview}
           imgSrc={imgSrc}
+          handleFileDownload={handleFileDownload}
         />
       </div>
     </div>

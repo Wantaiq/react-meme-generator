@@ -13,7 +13,11 @@ export default function Button(props) {
           Preview meme
         </button>
       </div>
-      <button className="download-btn" htmlFor="download-btn">
+      <button
+        onClick={props.handleFileDownload}
+        className="download-btn"
+        htmlFor="download-btn"
+      >
         Download
       </button>
     </div>
