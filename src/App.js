@@ -1,7 +1,6 @@
 import { saveAs } from 'file-saver';
 import { useEffect, useState } from 'react';
 import Buttons from './components/Buttons';
-import Hero from './components/Hero';
 import ImagePreview from './components/ImagePreview';
 import MemeForm from './components/MemeForm';
 
