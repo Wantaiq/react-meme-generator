@@ -46,7 +46,6 @@ export default function App() {
           throw new Error(response.status);
         }
         const data = response;
-        console.log(data);
         return data.url;
       } catch (error) {
         console.log(error);
