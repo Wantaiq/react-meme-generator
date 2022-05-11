@@ -75,7 +75,6 @@ export default function App() {
 
   return (
     <div className="container">
-      <Hero />
       <ImagePreview imgSrc={imgSrc} />
       <MemeForm
         handleTopInput={handleTopInput}
